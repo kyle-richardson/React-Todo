@@ -8,7 +8,15 @@ const TodoList = (props) => {
     return (
         <div>
             <h3>TodoList here</h3>
-            <Todo key={props.id} list = {props.list} handleCheck={props.handleCheck}/>
+            <div 
+                onClick={props.clearCompleted} 
+                className="clear-button">Clear completed
+            </div>
+            <Todo 
+                key={props.id} 
+                list = {props.list} 
+                handleCheck={props.handleCheck}
+            />
         </div>
     )
 }

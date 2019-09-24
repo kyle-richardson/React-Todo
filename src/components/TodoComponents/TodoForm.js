@@ -4,11 +4,11 @@ const TodoForm = (props) => {
     return (
         <div>
             <h3>TodoForm here</h3>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={e=> {props.handleSubmit(e)}}>
                 <input 
                     type="text" 
                     name="task" 
-                    value={props.item.task}
+                    value={props.item.task || ''}
                     onChange={props.handleChange}
                     placeholder="Enter new task here"
                 />

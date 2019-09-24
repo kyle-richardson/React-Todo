@@ -22,14 +22,19 @@ class App extends React.Component {
 
   handleSubmit= e => {
     e.preventDefault()
-    this.setState({
-      ...this.state,
-      todoList: [...this.state.todoList, {
-        ...this.state.listItem,
-        id: this.state.idCreator
-      }],
-      idCreator: this.state.idCreator+1
-    })
+    if(this.state.listItem.task){
+      this.setState({
+        ...this.state,
+        todoList: 
+        [...this.state.todoList, {
+          ...this.state.listItem,
+          id: this.state.idCreator
+        }],
+        idCreator: this.state.idCreator+1
+      })
+    }
+    // this.clearForm()
+    
   }
 
   handleChange = event => {
@@ -51,6 +56,27 @@ class App extends React.Component {
     }))
   }
 
+  clearForm = () => {
+    this.setState({
+      ...this.state,
+      listItem: {
+        task: '',
+        id: '',
+        completed: false
+      },
+    })
+  }
+
+  clearCompleted = ()=> {
+    const newList = this.state.todoList.filter(ele => {
+      return !ele.completed
+    })
+    this.setState(prev => ({
+      ...prev,
+      todoList: newList
+    }))
+  }
+
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -63,10 +89,12 @@ class App extends React.Component {
           item={this.state.listItem} 
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
+          clearForm={this.clearForm}
         />
         <TodoList 
           list={this.state.todoList} 
           handleCheck={this.handleCheck}
+          clearCompleted = {this.clearCompleted}
         />
       </div>
     );
