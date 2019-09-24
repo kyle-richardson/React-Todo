@@ -18,22 +18,28 @@ class App extends React.Component {
       },
       idCreator: 0
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit= e => {
+  async handleSubmit(e) {
     e.preventDefault()
-    if(this.state.listItem.task){
-      this.setState(prev => ({
-        ...prev,
-        todoList: 
-        [...prev.todoList, {
-          ...prev.listItem,
-          id: prev.idCreator
-        }],
-        idCreator: prev.idCreator+1
-      }))
+    try {
+      if(this.state.listItem.task){
+        await this.setState(prev => ({
+          ...prev,
+          todoList: 
+          [...prev.todoList, {
+            ...prev.listItem,
+            id: prev.idCreator
+          }],
+          idCreator: prev.idCreator+1
+        }))
+      }
     }
-    // this.clearForm()
+    catch (err) {
+      console.log(err)
+    }    
+    this.clearForm()
     
   }
 
@@ -84,7 +90,6 @@ class App extends React.Component {
           item={this.state.listItem} 
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
-          clearForm={this.clearForm}
         />
         <TodoList 
           list={this.state.todoList} 
