@@ -23,15 +23,15 @@ class App extends React.Component {
   handleSubmit= e => {
     e.preventDefault()
     if(this.state.listItem.task){
-      this.setState({
-        ...this.state,
+      this.setState(prev => ({
+        ...prev,
         todoList: 
-        [...this.state.todoList, {
-          ...this.state.listItem,
-          id: this.state.idCreator
+        [...prev.todoList, {
+          ...prev.listItem,
+          id: prev.idCreator
         }],
-        idCreator: this.state.idCreator+1
-      })
+        idCreator: prev.idCreator+1
+      }))
     }
     // this.clearForm()
     
@@ -77,14 +77,9 @@ class App extends React.Component {
     }))
   }
 
-
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
         <TodoForm 
           item={this.state.listItem} 
           handleChange={this.handleChange} 
