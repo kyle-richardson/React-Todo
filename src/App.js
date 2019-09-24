@@ -85,16 +85,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TodoForm 
-          item={this.state.listItem} 
-          handleChange={this.handleChange} 
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="app-container">
         <TodoList 
           list={this.state.todoList} 
           handleCheck={this.handleCheck}
           clearCompleted = {this.clearCompleted}
+        />
+        <TodoForm 
+          item={this.state.listItem} 
+          handleChange={this.handleChange} 
+          handleSubmit={this.handleSubmit}
         />
       </div>
     );

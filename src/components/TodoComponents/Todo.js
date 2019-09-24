@@ -1,27 +1,28 @@
 import React from "react"
 
+import TodoForm from "./TodoForm"
+
 const Todo = (props) => {
     return (
-        <div>
-            {props.list.map((item,ind)=> {
+        <div className="items-container">
+            {props.list.map((item)=> {
                 return (
-                    <div>
+                    <div className="single-item">
+                        <label 
+                            className={item.completed 
+                                ? 'checked' 
+                                : 'unchecked'}
+                        >
                         <input 
                             type="checkbox" 
                             value={item.id} 
-                            key={ind}
+                            key={item.id}
                             name={item.task}
                             checked = {item.completed}
                             onChange={props.handleCheck}
-                            
                         />
-                            <label 
-                                className={item.completed 
-                                    ? 'checked' 
-                                    : 'unchecked'}
-                            >
-                                {item.task}
-                            </label>
+                            {item.task}
+                        </label>
                     </div>
                 )
             })}

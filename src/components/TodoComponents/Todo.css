@@ -1,13 +1,42 @@
+html {
+    font-size: 62.5%;
+}
 body {
-    background: white;
+    background: rgb(31, 39, 39);
+    font-size: 1.5rem;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3rem;
+
+}
+h3 {
+    font-size: 2.5rem;
+    margin: 5px auto;
 }
 
 button {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 8px;
-    font-size: .9rem;
+    font-size: 1.5rem;
 }
+
+div {
+    margin: 5px auto;
+}
+
+input {
+    margin: 0 10px;
+}
+label {
+    /* margin: 0 5px; */
+}
+
 
 .checked {
     text-decoration: line-through;
@@ -21,5 +50,43 @@ button {
     width: 150px;
     text-align: center;
     cursor: pointer;
-    font-size: .9rem;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.app-container {
+    border: 2px solid black;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px gray;
+    background: antiquewhite;
+}
+.single-item {
+    border-bottom: 1px dotted gray;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.items-container > :first-child {
+    border-top: 1px dotted gray;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.form-container {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.text-box {
+    width: 50%;
 }
