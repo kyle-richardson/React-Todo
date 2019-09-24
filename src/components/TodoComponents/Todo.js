@@ -15,7 +15,13 @@ const Todo = (props) => {
                             onChange={props.handleCheck}
                             
                         />
-                            <label className={item.completed ? 'checked' : 'unchecked'}>{item.task}</label>
+                            <label 
+                                className={item.completed 
+                                    ? 'checked' 
+                                    : 'unchecked'}
+                            >
+                                {item.task}
+                            </label>
                     </div>
                 )
             })}
