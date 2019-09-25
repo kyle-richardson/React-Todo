@@ -26,7 +26,6 @@ class App extends React.Component {
     try {
       if(this.state.listItem.task){
         await this.setState(prev => ({
-          ...prev,
           todoList: 
           [...prev.todoList, {
             ...prev.listItem,
@@ -47,7 +46,6 @@ class App extends React.Component {
     const {name, value} = event.target
     this.setState({
       listItem: {
-        ...this.state.listItem,
         [name]: value
       }
     })
@@ -64,7 +62,6 @@ class App extends React.Component {
 
   clearForm = () => {
     this.setState({
-      ...this.state,
       listItem: {
         task: '',
         id: '',
@@ -77,10 +74,9 @@ class App extends React.Component {
     const newList = this.state.todoList.filter(ele => {
       return !ele.completed
     })
-    this.setState(prev => ({
-      ...prev,
+    this.setState({
       todoList: newList
-    }))
+    })
   }
 
   render() {
