@@ -119,7 +119,8 @@ class App extends React.Component {
         <CompletedList 
           completedList={this.state.completedList}
           isShowing={this.state.isShowing}
-          toggleIsShowing={this.toggleIsShowing}/>
+          toggleIsShowing={this.toggleIsShowing}
+          search={this.state.search}/>
       </div>
     );
   }

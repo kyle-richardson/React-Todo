@@ -96,7 +96,7 @@ label {
 
 .completed-container {
     margin-top: 40px;
-    margin-left: 10px;
+    
     margin-bottom: 20px;
 }
 
@@ -104,6 +104,7 @@ label {
     text-align: left;
     text-decoration: line-through;
     font-style: italic;
+    margin-left: 10px;
 }
 
 .search-box {
