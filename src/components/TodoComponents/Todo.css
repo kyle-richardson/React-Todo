@@ -24,6 +24,7 @@ button {
     border: 1px solid black;
     border-radius: 8px;
     font-size: 1.5rem;
+    background-color: white;
 }
 
 div {
@@ -107,7 +108,7 @@ label {
 
 .search-box {
     position: relative;
-    right: -35%;
+    right: -32%;
     top: 0;
 }
 
