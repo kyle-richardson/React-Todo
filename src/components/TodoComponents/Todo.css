@@ -105,6 +105,12 @@ label {
     font-style: italic;
 }
 
+.search-box {
+    position: relative;
+    right: -35%;
+    top: 0;
+}
+
 .hide {
     display: none;
 }
