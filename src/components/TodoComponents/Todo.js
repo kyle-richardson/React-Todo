@@ -1,11 +1,13 @@
 import React from "react"
 
-import TodoForm from "./TodoForm"
-
 const Todo = (props) => {
+    let list = ''
+    !!props.search 
+        ? list=props.list.filter(ele => ele.task.includes(props.search)) 
+        : list=props.list
     return (
         <div className="items-container">
-            {props.list.map((item)=> {
+            {list.map((item)=> {
                 return (
                     <div className="single-item">
                         <label 

@@ -44,7 +44,7 @@ label {
     color: darkgray;
 }
 
-.clear-button {
+.clear-button, .completed-button {
     border: 1px solid black;
     border-radius: 8px;
     width: 150px;
@@ -53,11 +53,12 @@ label {
     font-size: 1.5rem;
     margin: 0 auto;
     margin-bottom: 20px;
+    background: white;
 }
 
 .app-container {
     border: 2px solid black;
-    width: 50%;
+    width: 450px;
     margin: 0 auto;
     text-align: center;
     align-items: center;
@@ -89,4 +90,21 @@ label {
 
 .text-box {
     width: 50%;
+    padding: 5px;
+}
+
+.completed-container {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.completed-container p {
+    text-align: left;
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.hide {
+    display: none;
 }

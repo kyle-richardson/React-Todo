@@ -10,12 +10,13 @@ const TodoList = (props) => {
             <h3>To-do List</h3>
             <div 
                 onClick={props.clearCompleted} 
-                className="clear-button">Clear completed
+                className="clear-button">Move Completed
             </div>
             <Todo 
                 key={props.id} 
                 list = {props.list} 
                 handleCheck={props.handleCheck}
+                search={props.search}
             />
         </div>
     )
