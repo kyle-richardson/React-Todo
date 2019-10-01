@@ -59,12 +59,11 @@ class App extends React.Component {
           [name]: value
       })
   }
-
   handleCheck = event => {
-    const { value} = event.target
+    const id = event.target.getAttribute('name')
     this.setState(prev => ({
       todoList: prev.todoList.map(
-        el =>`${el.id}`===`${value}` ? {...el, completed: !el.completed} : el
+        el =>`${el.id}`===`${id}` ? {...el, completed: !el.completed} : el
       )
     }))
   }
@@ -92,6 +91,14 @@ class App extends React.Component {
     }))
   }
 
+  handleDelete = event => {
+    const id = event.target.getAttribute('name')
+    const newList = this.state.todoList.filter(ele => `${ele.id}` !==`${id}`)
+    this.setState({
+      todoList: newList
+    })
+  }
+
   toggleIsShowing = () => {
     this.setState(prev => ({
       isShowing: !prev.isShowing
@@ -110,6 +117,7 @@ class App extends React.Component {
           handleCheck={this.handleCheck}
           clearCompleted = {this.clearCompleted}
           search={this.state.search}
+          handleDelete={this.handleDelete}
         />
         <TodoForm 
           item={this.state.listItem} 

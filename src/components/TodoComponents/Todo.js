@@ -1,4 +1,6 @@
 import React from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const Todo = (props) => {
     let list = ''
@@ -9,22 +11,14 @@ const Todo = (props) => {
         <div className="items-container">
             {list.map((item)=> {
                 return (
-                    <div className="single-item">
-                        <label 
-                            className={item.completed 
-                                ? 'checked' 
-                                : 'unchecked'}
-                        >
-                        <input 
-                            type="checkbox" 
-                            value={item.id} 
-                            key={item.id}
-                            name={item.task}
-                            checked = {item.completed}
-                            onChange={props.handleCheck}
-                        />
+                    <div className={`single-item`}>
+                        <div className={`left-side ${item.completed ? "checked":null}`} onClick={props.handleCheck} name={item.id}>
+                            <div className="checkmark">{item.completed ? <FontAwesomeIcon icon={faCheck}/> : " "}</div>
                             {item.task}
-                        </label>
+                        </div>
+                        <div className="delete" onClick={props.handleDelete} name={item.id}>
+                            <FontAwesomeIcon icon={faTrash}/>
+                        </div>
                     </div>
                 )
             })}

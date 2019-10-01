@@ -3,7 +3,7 @@ import React from "react"
 const TodoForm = (props) => {
     return (
         <div className="form-container">
-            <form onSubmit={e=> props.handleSubmit(e)}>
+            <form className="form" onSubmit={props.handleSubmit}>
                 <input 
                     className="text-box"
                     type="text" 
@@ -12,7 +12,7 @@ const TodoForm = (props) => {
                     onChange={props.handleChange}
                     placeholder="Enter new task here"
                 />
-                <button>Submit</button>
+                <div className="submit-button" onClick={props.handleSubmit}>Submit</div>
             </form>
         </div>
     )

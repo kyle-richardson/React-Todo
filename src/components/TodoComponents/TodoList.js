@@ -7,7 +7,7 @@ import Todo from "./Todo"
 const TodoList = (props) => {
     return (
         <div className="todolist-container">
-            <h3>To-do List</h3>
+            <h1>To-do List</h1>
             <div 
                 onClick={props.clearCompleted} 
                 className="clear-button">Move Completed
@@ -17,6 +17,7 @@ const TodoList = (props) => {
                 list = {props.list} 
                 handleCheck={props.handleCheck}
                 search={props.search}
+                handleDelete={props.handleDelete}
             />
         </div>
     )
