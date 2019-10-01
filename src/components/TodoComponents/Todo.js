@@ -1,5 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// eslint-disable-next-line
 import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const Todo = (props) => {
@@ -11,7 +12,7 @@ const Todo = (props) => {
         <div className="items-container">
             {list.map((item)=> {
                 return (
-                    <div className={`single-item`}>
+                    <div key={item.id} className={`single-item`}>
                         <div className={`left-side ${item.completed ? "checked":null}`} onClick={props.handleCheck} name={item.id}>
                             <div className="checkmark">{item.completed ? <FontAwesomeIcon icon={faCheck}/> : " "}</div>
                             {item.task}

@@ -133,12 +133,14 @@ class App extends React.Component {
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
         />
-        {this.state.completedList.length>0 && <CompletedList
+        {this.state.completedList.length>0 && 
+        <CompletedList
           handleDelete = {this.handleDelete} 
           completedList={this.state.completedList}
           isShowing={this.state.isShowing}
           toggleIsShowing={this.toggleIsShowing}
-          search={this.state.search}/>}
+          search={this.state.search}
+        />}
       </div>
     );
   }

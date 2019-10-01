@@ -7,11 +7,14 @@ import Todo from "./Todo"
 const TodoList = (props) => {
     return (
         <div className="todolist-container">
-            <h1>To-do List</h1>
-            <div 
-                onClick={props.clearCompleted} 
-                className="clear-button">Move Completed
-            </div>
+            <div className="todo-header">
+                <h1>To-do List</h1>
+                <div 
+                    onClick={props.clearCompleted} 
+                    className="clear-button">
+                        Move Completed
+                </div>
+            </div>   
             <Todo 
                 key={props.id} 
                 list = {props.list} 

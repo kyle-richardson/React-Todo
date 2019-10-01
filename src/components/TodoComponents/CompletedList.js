@@ -7,15 +7,18 @@ const CompletedList = (props) => {
         : list=props.completedList
     return (
         <div className="completed-container">
-            <h3>Completed</h3>
-            <div 
-                onClick={props.toggleIsShowing} 
-                className="completed-button">{props.isShowing ? 'Hide Completed' : 'Show Completed'}
+            <div className="completed-header">
+                <h3>Completed</h3>
+                <div 
+                    onClick={props.toggleIsShowing} 
+                    className="completed-button">{props.isShowing ? 'Hide Completed' : 'Show Completed'}
+                </div>
             </div>
+            
             <div className={!props.isShowing ? 'hide': null}>
                 {list.length>0 ? list.map(listItem => {
                     return (
-                        <div className="comp-item">
+                        <div key={listItem.id} className="comp-item">
                             <span className="comp-task">{`${listItem.task}`}</span>
                             <span className="comp-delete" onClick={props.handleDelete} name={listItem.id}>X</span>
                         </div>
