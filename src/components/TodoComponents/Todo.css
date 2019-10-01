@@ -6,6 +6,7 @@ body {
     font-size: 1.5rem;
     margin: 40px auto;
     width: 100%;
+    font-family: 'B612', sans-serif;
 }
 
 h1 {
@@ -70,7 +71,7 @@ h3 {
     font-size: 1.9rem;
 }
 .delete {
-    width: 5%;
+    width: 10%;
     min-width: 40px;
     border-bottom: 1px solid gray;
     padding: 10px;
@@ -135,8 +136,7 @@ h3 {
 .completed-container p {
     text-align: left;
     text-decoration: line-through;
-    font-style: italic;
-    margin-left: 10px;
+    margin-left: 40px;
 }
 
 .search-box {
@@ -168,7 +168,9 @@ h3 {
     color: white;
     background-color: slategray;
 }
-
+.trash-icon {
+    z-index: -1;
+}
 .hide {
     display: none;
 }

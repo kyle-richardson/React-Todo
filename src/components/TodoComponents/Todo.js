@@ -16,9 +16,9 @@ const Todo = (props) => {
                             <div className="checkmark">{item.completed ? <FontAwesomeIcon icon={faCheck}/> : " "}</div>
                             {item.task}
                         </div>
-                        <div className="delete" onClick={props.handleDelete} name={item.id}>
-                            <FontAwesomeIcon icon={faTrash}/>
-                        </div>
+                        <span className="delete" name={item.id} onClick={props.handleDelete}>
+                            <FontAwesomeIcon className="trash-icon" icon={faTrash}/>
+                        </span>
                     </div>
                 )
             })}
