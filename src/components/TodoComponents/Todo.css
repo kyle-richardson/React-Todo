@@ -127,6 +127,7 @@ h3 {
     margin-right:0;
     padding-left: 5px;
     border: 0;
+    border-radius: 0;
 
 }
 
@@ -147,6 +148,7 @@ h3 {
     top: 0;
     border: 0;
     padding: 5px;
+    border-radius: 0;
 }
 .submit-button {
     cursor: pointer;
@@ -184,7 +186,10 @@ h3 {
 
     }
     .text-box {
-        width: 80%;
+        width: 60%;
+    }
+    .submit-button {
+        width: 40%;
     }
     .clear-button, .completed-button {
         width: 100%;
@@ -193,14 +198,19 @@ h3 {
     }
     .app-container {
         padding: 0;
+        width: 100%;
     }
     .form-container {
         margin: 0;
     }
     .completed-container {
-        margin-top: 10px;
+        margin-top: 40px;
     }
     .items-container {
         margin: 10px auto;
+    }
+    body {
+        margin: 10px auto;
+        background-color: rgb(139, 185, 255);
     }
 }
