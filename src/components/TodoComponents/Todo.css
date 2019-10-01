@@ -136,10 +136,20 @@ h3 {
     margin-bottom: 20px;
 }
 
-.completed-container p {
+.comp-task {
     text-align: left;
     text-decoration: line-through;
     margin-left: 40px;
+}
+.comp-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.comp-delete {
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
 }
 
 .search-box {

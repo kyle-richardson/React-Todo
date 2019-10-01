@@ -93,10 +93,19 @@ class App extends React.Component {
 
   handleDelete = event => {
     const id = event.target.getAttribute('name')
-    const newList = this.state.todoList.filter(ele => `${ele.id}` !==`${id}`)
-    this.setState({
-      todoList: newList
-    })
+    const type = event.target.className
+    if(type==="delete"){
+      const newList = this.state.todoList.filter(ele => `${ele.id}` !==`${id}`)
+      this.setState({
+        todoList: newList
+      })
+    }
+    if(type==="comp-delete") {
+      const newList = this.state.completedList.filter(ele => `${ele.id}` !==`${id}`)
+      this.setState({
+        completedList: newList
+      })
+    }
   }
 
   toggleIsShowing = () => {
@@ -124,7 +133,8 @@ class App extends React.Component {
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
         />
-        {this.state.completedList.length>0 && <CompletedList 
+        {this.state.completedList.length>0 && <CompletedList
+          handleDelete = {this.handleDelete} 
           completedList={this.state.completedList}
           isShowing={this.state.isShowing}
           toggleIsShowing={this.toggleIsShowing}
