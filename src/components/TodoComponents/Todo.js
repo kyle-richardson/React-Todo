@@ -17,7 +17,8 @@ const Todo = (props) => {
                             {item.task}
                         </div>
                         <span className="delete" name={item.id} onClick={props.handleDelete}>
-                            <FontAwesomeIcon className="trash-icon" icon={faTrash}/>
+                            {/* <FontAwesomeIcon className="trash-icon" icon={faTrash}/> */}
+                            X
                         </span>
                     </div>
                 )
