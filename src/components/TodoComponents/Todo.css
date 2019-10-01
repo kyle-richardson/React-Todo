@@ -42,12 +42,11 @@ h3 {
 }
 
 .app-container {
-    border: 2px solid black;
     width: 70%;
     margin: 0 auto;
+    padding: 5px 0;
     text-align: center;
     align-items: center;
-    box-shadow: 5px 5px 5px gray;
     background: rgb(139, 185, 255);
 }
 .single-item {
@@ -75,7 +74,7 @@ h3 {
     width: 10%;
     min-width: 40px;
     border-bottom: 1px solid gray;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
     background-color: rgb(248, 201, 201);
     font-weight: bold;
@@ -159,6 +158,7 @@ h3 {
     text-align: center;
     background: rgb(80, 235, 145);
     padding-top: 10px;
+    min-width: 60px;
 }
 
 .submit-button:hover {
@@ -171,9 +171,36 @@ h3 {
     color: white;
     background-color: slategray;
 }
-.trash-icon {
-    z-index: -1;
-}
 .hide {
     display: none;
+}
+
+@media (max-width: 600px) {
+    .search-box {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 10px;
+
+    }
+    .text-box {
+        width: 80%;
+    }
+    .clear-button, .completed-button {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .app-container {
+        padding: 0;
+    }
+    .form-container {
+        margin: 0;
+    }
+    .completed-container {
+        margin-top: 10px;
+    }
+    .items-container {
+        margin: 10px auto;
+    }
 }
