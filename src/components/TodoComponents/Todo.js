@@ -15,15 +15,22 @@ const Todo = (props) => {
                 return (
                     <div key={item.id} className={`single-item`}>
                         <div className={`left-side ${item.completed ? "checked":null}`} onClick={props.handleCheck} name={item.id}>
-                            <div className="checkmark">{item.completed ? <FontAwesomeIcon icon={faCheck}/> : " "}</div>
-                                <span>
-                                {item.task}
+                            <div className={`far-left`}>
+                                <span className="checkmark">
+                                    {item.completed ? <FontAwesomeIcon icon={faCheck}/> : ""}
                                 </span>
-                                <span style={{fontSize: '1rem', marginLeft: '20%'}}>{item.completed ? `(completed on ${moment().format('lll')})` : null}</span>
+                                <span>
+                                    {item.task}
+                                </span>
                             </div>
+                            
+                            <span className="date-completed">
+                                {item.completed ? `(completed on ${moment().format('lll')})` : null}
+                            </span>
+                        </div>
+                        
                         <div className="delete" name={item.id} onClick={props.handleDelete}>
                             <FontAwesomeIcon className="trash-icon" icon={faTrash}/>
-                            
                         </div>
                     </div>
                 )

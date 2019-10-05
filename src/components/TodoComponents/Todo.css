@@ -70,10 +70,16 @@ span, svg {
 }
 .left-side {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 10px;
     width: 100%;
     font-size: 1.9rem;
+}
+.far-left {
+    display: flex;
+}
+.date-completed {
+    font-size: 1rem;
 }
 .delete {
     opacity: .6;
@@ -187,8 +193,8 @@ span, svg {
 }
 
 .checked {
-    text-decoration: line-through;
-    /* font-style: italic; */
+    /* text-decoration: line-through; */
+    font-style: italic;
     color: white;
     background-color: slategray;
     opacity: .6;
