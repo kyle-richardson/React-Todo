@@ -22,24 +22,21 @@ class App extends React.Component {
         completed: false,
         completedOn: ''
       },
-      idCreator: 0,
       isShowing: false
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  async handleSubmit(e) {
+  handleSubmit=(e)=> {
     e.preventDefault()
     try {
       if(this.state.listItem.task){
-        await this.setState(prev => ({
+        this.setState(prev => ({
           todoList: 
           [...prev.todoList, {
             ...prev.listItem,
-            id: prev.idCreator
+            id: new Date().getTime()
           }],
-          idCreator: prev.idCreator+1
-        }))
+        }), ()=> localStorage.setItem('todoList', JSON.stringify(this.state.todoList)))
       }
     }
     catch (err) {
@@ -47,6 +44,13 @@ class App extends React.Component {
     }    
     this.clearForm()
     
+    
+  }
+  componentDidMount(){
+    const completedList = localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
+    const todoList = localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
+    const isShowing = localStorage.getItem('isShowing') ? JSON.parse(localStorage.getItem('isShowing')) : false
+    this.setState({ completedList, todoList, isShowing });
   }
 
   handleChange = event => {
@@ -63,8 +67,6 @@ class App extends React.Component {
   }
   handleCheck = event => {
     const id = event.target.getAttribute('name')
-    let date = '';
-
     this.setState(prev => ({
       todoList: prev.todoList.map(
         el =>`${el.id}`===`${id}` 
@@ -75,7 +77,8 @@ class App extends React.Component {
         } 
         : el
       )
-    }))
+    }), ()=> localStorage.setItem('todoList', JSON.stringify(this.state.todoList)))
+    
   }
 
   clearForm = () => {
@@ -98,7 +101,12 @@ class App extends React.Component {
     this.setState(prev => ({
       completedList: prev.completedList.concat(comp),
       todoList: newList
-    }))
+    }), ()=>{
+      localStorage.setItem('todoList', JSON.stringify(this.state.todoList));
+      localStorage.setItem('completedList', JSON.stringify(this.state.completedList));
+    })
+    
+
   }
 
   handleDelete = event => {
@@ -108,20 +116,22 @@ class App extends React.Component {
       const newList = this.state.todoList.filter(ele => `${ele.id}` !==`${id}`)
       this.setState({
         todoList: newList
-      })
+      }, ()=>localStorage.setItem('todoList', JSON.stringify(this.state.todoList)))
+      
     }
     if(type==="comp-delete") {
       const newList = this.state.completedList.filter(ele => `${ele.id}` !==`${id}`)
       this.setState({
         completedList: newList
-      })
+      }, ()=> localStorage.setItem('completedList', JSON.stringify(this.state.completedList)))
+      
     }
   }
 
   toggleIsShowing = () => {
     this.setState(prev => ({
       isShowing: !prev.isShowing
-    }))
+    }), ()=> localStorage.setItem('isShowing', JSON.stringify(this.state.isShowing)))
   }
 
   render() {
