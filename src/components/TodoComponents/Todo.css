@@ -78,6 +78,7 @@ span, svg {
 }
 .far-left {
     display: flex;
+    pointer-events: none;
 }
 .date-completed {
     font-size: 1rem;

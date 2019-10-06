@@ -47,8 +47,8 @@ class App extends React.Component {
     
   }
   componentDidMount(){
-    const completedList = localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
-    const todoList = localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
+    const completedList = !!localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
+    const todoList = !!localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
     const isShowing = localStorage.getItem('isShowing') ? JSON.parse(localStorage.getItem('isShowing')) : false
     this.setState({ completedList, todoList, isShowing });
   }
