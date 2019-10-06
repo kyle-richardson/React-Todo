@@ -19,8 +19,13 @@ const CompletedList = (props) => {
                 {list.length>0 ? list.map(listItem => {
                     return (
                         <div key={listItem.id} className="comp-item">
-                            <span className="comp-task">{`${listItem.task}`}</span>
-                            <span className="comp-delete" onClick={props.handleDelete} name={listItem.id}>X</span>
+                            <div className="comp-left">
+                                <span className="comp-task">{`${listItem.task}`}</span>
+                                <span className="date-completed">
+                                    (completed on {listItem.completedOn})
+                                </span>
+                            </div>
+                            <div className="comp-delete" onClick={props.handleDelete} name={listItem.id}>X</div>
                         </div>
                     )
                 }) : <span>{!props.search ? 'No completed items yet' : 'No items match your search'}</span>}

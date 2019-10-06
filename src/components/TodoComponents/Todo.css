@@ -64,6 +64,7 @@ span, svg {
     cursor: pointer;
     
 }
+
 .checkmark {
     width: 5%;
     min-width: 40px;
@@ -162,6 +163,14 @@ span, svg {
     text-align: center;
     width: 20%;
     cursor: pointer;
+}
+.comp-delete:hover {
+    color: rgb(253, 77, 77);
+}
+.comp-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .search-box {

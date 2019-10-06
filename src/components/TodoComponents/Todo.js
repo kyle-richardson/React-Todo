@@ -14,7 +14,11 @@ const Todo = (props) => {
             {list.map((item)=> {
                 return (
                     <div key={item.id} className={`single-item`}>
-                        <div className={`left-side ${item.completed ? "checked":null}`} onClick={props.handleCheck} name={item.id}>
+                        <div 
+                            className={`left-side ${item.completed ? "checked":null}`} 
+                            onClick={props.handleCheck} 
+                            name={item.id}
+                        >
                             <div className={`far-left`}>
                                 <span className="checkmark">
                                     {item.completed ? <FontAwesomeIcon icon={faCheck}/> : ""}
@@ -25,7 +29,7 @@ const Todo = (props) => {
                             </div>
                             
                             <span className="date-completed">
-                                {item.completed ? `(completed on ${moment().format('lll')})` : null}
+                                {item.completed ? `(completed on ${item.completedOn})` : null}
                             </span>
                         </div>
                         

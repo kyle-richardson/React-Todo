@@ -4,6 +4,7 @@ import TodoForm from "./components/TodoComponents/TodoForm"
 import TodoList from "./components/TodoComponents/TodoList"
 import CompletedList from "./components/TodoComponents/CompletedList"
 import Search from "./components/TodoComponents/Search"
+import moment from "moment"
 
 import "./components/TodoComponents/Todo.css"
 
@@ -18,7 +19,8 @@ class App extends React.Component {
       listItem: {
         task: '',
         id: '',
-        completed: false
+        completed: false,
+        completedOn: ''
       },
       idCreator: 0,
       isShowing: false
@@ -61,9 +63,17 @@ class App extends React.Component {
   }
   handleCheck = event => {
     const id = event.target.getAttribute('name')
+    let date = '';
+
     this.setState(prev => ({
       todoList: prev.todoList.map(
-        el =>`${el.id}`===`${id}` ? {...el, completed: !el.completed} : el
+        el =>`${el.id}`===`${id}` 
+        ? {
+          ...el, 
+          completed: !el.completed,
+          completedOn: moment().format('lll')
+        } 
+        : el
       )
     }))
   }
