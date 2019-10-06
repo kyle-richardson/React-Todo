@@ -32,7 +32,9 @@ const Todo = (props) => {
                                 {item.completed ? `(completed on ${item.completedOn})` : null}
                             </span>
                         </div>
-                        
+                        {/* <div className="edit" name={item.id} onClick={props.handleEdit}>
+                            Edit
+                        </div> */}
                         <div className="delete" name={item.id} onClick={props.handleDelete}>
                             <FontAwesomeIcon className="trash-icon" icon={faTrash}/>
                         </div>

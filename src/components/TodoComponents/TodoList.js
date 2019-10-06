@@ -21,6 +21,7 @@ const TodoList = (props) => {
                 handleCheck={props.handleCheck}
                 search={props.search}
                 handleDelete={props.handleDelete}
+                handleEdit={props.handleEdit}
             />
         </div>
     )

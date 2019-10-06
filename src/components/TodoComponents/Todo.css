@@ -7,6 +7,7 @@ body {
     margin: 40px auto;
     width: 100%;
     font-family: 'B612', sans-serif;
+    
 }
 
 h1 {
@@ -28,8 +29,6 @@ input[type="text"]{
     font-size: 16px;
 
 }
-
-
 .todo-header, .completed-header {
     margin: 0;
     display: flex;
@@ -43,11 +42,11 @@ input[type="text"]{
     text-align: center;
     cursor: pointer;
     font-size: 1.4rem;
-    background: white;
+    background: rgb(139, 185, 255);
     padding: 10px 0;
 }
 .clear-button:hover, .completed-button:hover {
-    background-color: rgb(228, 227, 227);
+    background-color: rgb(94, 156, 250);
     
 }
 
@@ -55,7 +54,8 @@ input[type="text"]{
     width: 70%;
     margin: 0 auto;
     padding: 5px 0;
-    background: rgb(139, 185, 255);
+    background: white;
+    /* background: rgb(139, 185, 255); */
 }
 .single-item {
     display: flex;
@@ -144,6 +144,8 @@ input[type="text"]{
     padding-left: 5px;
     border: 0;
     border-radius: 0;
+    /* border: 1px solid rgb(139, 185, 255); */
+    background: rgb(238, 238, 238);
 
 }
 
@@ -177,15 +179,14 @@ input[type="text"]{
 }
 
 .search-box {
-    /* position: relative;
-    right: -32%;
-    top: 0; */
     border: 0;
     padding: 5px;
     border-radius: 0;
     width: 150px;
     margin-left: 4%;
     margin-top: 10px;
+    /* border: 1px solid rgb(139, 185, 255); */
+    background: rgb(238, 238, 238);
 }
 .submit-button {
     cursor: pointer;
@@ -260,6 +261,6 @@ input[type="text"]{
     }
     body {
         margin: 0 auto;
-        background-color: rgb(139, 185, 255);
+        background-color: white;
     }
 }

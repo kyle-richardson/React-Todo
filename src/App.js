@@ -25,7 +25,15 @@ class App extends React.Component {
       isShowing: false
     }
   }
+  componentDidMount(){
+    const completedList = !!localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
+    const todoList = !!localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
+    const isShowing = localStorage.getItem('isShowing') ? JSON.parse(localStorage.getItem('isShowing')) : false
+    this.setState({ completedList, todoList, isShowing });
+  }
+  handleEdit = e=> {
 
+  }
   handleSubmit=(e)=> {
     e.preventDefault()
     try {
@@ -43,16 +51,7 @@ class App extends React.Component {
       console.log(err)
     }    
     this.clearForm()
-    
-    
   }
-  componentDidMount(){
-    const completedList = !!localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
-    const todoList = !!localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
-    const isShowing = localStorage.getItem('isShowing') ? JSON.parse(localStorage.getItem('isShowing')) : false
-    this.setState({ completedList, todoList, isShowing });
-  }
-
   handleChange = event => {
     const {name, value} = event.target
     name==='task' 
@@ -147,6 +146,7 @@ class App extends React.Component {
           clearCompleted = {this.clearCompleted}
           search={this.state.search}
           handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
         />
         <TodoForm 
           item={this.state.listItem} 
