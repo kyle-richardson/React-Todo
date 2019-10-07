@@ -184,9 +184,21 @@ input[type="text"]{
     border-radius: 0;
     width: 150px;
     margin-left: 4%;
-    margin-top: 10px;
-    /* border: 1px solid rgb(139, 185, 255); */
+    max-height: 20px;
     background: rgb(238, 238, 238);
+
+}
+.toggle {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin-top: 10px;
 }
 .submit-button {
     cursor: pointer;
@@ -241,6 +253,7 @@ input[type="text"]{
         box-sizing: border-box;
         padding: 10px 0 10px 10px;
         margin: 0;
+        max-height: 40px;
 
     }
     .text-box {
@@ -266,6 +279,9 @@ input[type="text"]{
     }
     .items-container {
         margin: 10px auto;
+    }
+    .toggle {
+        padding-left: 5px;
     }
     body {
         margin: 0 auto;

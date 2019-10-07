@@ -1,4 +1,5 @@
 import React from "react"
+import Switch from "react-switch"
 
 const Search = (props) => {
     return (
@@ -11,17 +12,11 @@ const Search = (props) => {
                 onChange={props.handleChange}
                 placeholder="Search"
             />
-            <div onClick={()=>{
-                const body = document.querySelector('body')
-                const app = document.querySelector('.app-container')
-                const items = document.querySelector('.items-container')
-                items.classList.toggle('dark-mode-list')
-                body.classList.toggle('dark-mode')
-                app.classList.toggle('dark-mode')
-                }
-            }>
-                Toggle Dark Mode
+            <div className="toggle">
+                <Switch className="dark-toggle" onChange={props.toggleDarkMode} checked={props.darkMode}/>
+                <div style={{fontSize: '1rem'}}>Dark mode</div>
             </div>
+            
         </div>
     )
 }
