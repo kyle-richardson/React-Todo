@@ -261,6 +261,7 @@ input[type="text"]{
     }
     .submit-button {
         width: 40%;
+        height: 35px;
     }
     .clear-button, .completed-button {
         width: 100%;
