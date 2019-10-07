@@ -43,6 +43,8 @@ class App extends React.Component {
     const body = document.querySelector('body')
     const app = document.querySelector('.app-container')
     const items = document.querySelector('.items-container')
+    const textBox = document.querySelectorAll("input[type='text']")
+    textBox.forEach(box=> box.classList.toggle('dark-mode-text'))
     items.classList.toggle('dark-mode-list')
     body.classList.toggle('dark-mode')
     app.classList.toggle('dark-mode')
