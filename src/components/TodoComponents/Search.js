@@ -11,6 +11,17 @@ const Search = (props) => {
                 onChange={props.handleChange}
                 placeholder="Search"
             />
+            <div onClick={()=>{
+                const body = document.querySelector('body')
+                const app = document.querySelector('.app-container')
+                const items = document.querySelector('.items-container')
+                items.classList.toggle('dark-mode-list')
+                body.classList.toggle('dark-mode')
+                app.classList.toggle('dark-mode')
+                }
+            }>
+                Toggle Dark Mode
+            </div>
         </div>
     )
 }

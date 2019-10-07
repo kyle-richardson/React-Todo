@@ -216,6 +216,14 @@ input[type="text"]{
     display: none;
 }
 
+.dark-mode {
+    background: rgb(32, 32, 32);
+    color: white;
+}
+.dark-mode-list {
+    color: black;
+}
+
 @media (max-width: 600px) {
     .app-container {
         padding: 0;
