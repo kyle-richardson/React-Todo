@@ -1,8 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// eslint-disable-next-line
-import { faTrash, faCheck, faMonument} from '@fortawesome/free-solid-svg-icons'
-import moment from "moment"
+import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const Todo = (props) => {
     let list = ''
