@@ -24,8 +24,14 @@ const ListItem = (props) => {
                     {item.completed ? `(completed on: ${item.completedOn})` : null}
                 </span>
             </div>
-            <div className="edit" name={item.id} onClick={props.toggleEdit}>
-                Edit
+            <div 
+                className="edit" 
+                name={item.id} 
+                onClick={e=>{
+                    props.toggleEdit(e)
+                    document.querySelector('.edit-text').focus()
+                }}>
+                    Edit
             </div>
             <div className="delete" name={item.id} onClick={props.handleDelete}>
                 <FontAwesomeIcon className="trash-icon" icon={faTrash}/>

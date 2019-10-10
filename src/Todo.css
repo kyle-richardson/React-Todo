@@ -92,8 +92,11 @@ input[type="text"]{
     background: rgba(0,0,0,.1);
     margin-left: 40px;
     padding: 3px;
+    font-family: 'B612', sans-serif;
+    color: black;
 }
 .edit-save {
+
     opacity: .8;
     border: 0;
     margin-left: 10px;
@@ -106,7 +109,7 @@ input[type="text"]{
     background-color: rgb(32, 221, 111);
 }
 .edit {
-    opacity: .6;
+    opacity: .8;
     text-align: center;
     background-color: rgb(139, 185, 255);
     width: 15%;
