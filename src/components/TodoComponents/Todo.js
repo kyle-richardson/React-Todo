@@ -1,6 +1,6 @@
 import React from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons'
+import EditForm from "./EditForm"
+import ListItem from "./ListItem"
 
 const Todo = (props) => {
     let list = ''
@@ -11,31 +11,23 @@ const Todo = (props) => {
         <div className="items-container">
             {list.map((item)=> {
                 return (
-                    <div key={item.id} className={`single-item`}>
-                        <div 
-                            className={`left-side ${item.completed ? "checked":null}`} 
-                            onClick={props.handleCheck} 
-                            name={item.id}
-                        >
-                            <div className={`far-left`}>
-                                <span className="checkmark">
-                                    {item.completed ? <FontAwesomeIcon icon={faCheck}/> : ""}
-                                </span>
-                                <span>
-                                    {item.task}
-                                </span>
-                            </div>
-                            
-                            <span className="date-completed">
-                                {item.completed ? `(completed on ${item.completedOn})` : null}
-                            </span>
+                    <div key={item.id}>
+                        <div className={item.isEdit ? 'hide':null}>
+                            <ListItem 
+                                item = {item}
+                                handleCheck={props.handleCheck}
+                                toggleEdit={props.toggleEdit}
+                                handleDelete={props.handleDelete}
+                                />
                         </div>
-                        {/* <div className="edit" name={item.id} onClick={props.handleEdit}>
-                            Edit
-                        </div> */}
-                        <div className="delete" name={item.id} onClick={props.handleDelete}>
-                            <FontAwesomeIcon className="trash-icon" icon={faTrash}/>
+                        <div className={!item.isEdit ? 'hide':null}>
+                            <EditForm 
+                                item={item}
+                                handleChange={props.handleChange}
+                                toggleEdit={props.toggleEdit}
+                            />
                         </div>
+                        
                     </div>
                 )
             })}

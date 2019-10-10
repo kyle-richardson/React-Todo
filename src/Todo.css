@@ -66,15 +66,12 @@ input[type="text"]{
     margin: 0 auto;
     padding: 5px 0;
     background: white;
-    /* transition: .3s ease-in-out; */
-    /* background: rgb(139, 185, 255); */
 }
 .single-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 0 auto;
-    width: 92%;
     text-align: left;
     cursor: pointer;
 }
@@ -82,6 +79,45 @@ input[type="text"]{
 .checkmark {
     width: 5%;
     min-width: 40px;
+}
+.edit-form {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.9rem;
+}
+.edit-text {
+    border: 0;
+    background: rgba(0,0,0,.1);
+    margin-left: 40px;
+    padding: 3px;
+}
+.edit-save {
+    opacity: .8;
+    border: 0;
+    margin-left: 10px;
+    background-color: rgb(80, 235, 145);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.edit-save:hover {
+    opacity: 1;
+    background-color: rgb(32, 221, 111);
+}
+.edit {
+    opacity: .6;
+    text-align: center;
+    background-color: rgb(139, 185, 255);
+    width: 15%;
+    min-width: 40px;
+    border-bottom: 1px solid gray;
+    padding: 14px 0 10px 0;
+    vertical-align: middle;
+}
+.edit:hover {
+    opacity: 1;
+    background-color: rgb(94, 156, 250);
 }
 .left-side {
     display: flex;
@@ -116,15 +152,12 @@ input[type="text"]{
 .items-container {
     display: flex;
     flex-direction: column;
+    width: 92%;
+    margin: 0 auto;
 }
 .item-row {
     display: flex;
     justify-content: space-between;
-}
-
-
-.items-container> :last-child > .delete {
-    border-bottom: 0;
 }
 
 .items-container > :nth-child(even) {
@@ -156,7 +189,6 @@ input[type="text"]{
     padding-left: 5px;
     border: 0;
     border-radius: 0;
-    /* border: 1px solid rgb(139, 185, 255); */
     background: rgb(238, 238, 238);
 
 }
@@ -260,9 +292,6 @@ input[type="text"]{
         flex-direction: column;
         padding: 0;
     }
-    .single-item {
-        width: 100%;
-    }
     .search-box {
         position: static;
         width: 100%;
@@ -296,9 +325,13 @@ input[type="text"]{
     }
     .items-container {
         margin: 10px auto;
+        width: 100%;
     }
     .toggle {
         padding-left: 5px;
+    }
+    .delete, .edit {
+        width: 20%;
     }
     body {
         margin: 0 auto;

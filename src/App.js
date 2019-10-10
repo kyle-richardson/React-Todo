@@ -6,7 +6,7 @@ import CompletedList from "./components/TodoComponents/CompletedList"
 import Search from "./components/TodoComponents/Search"
 import moment from "moment"
 
-import "./components/TodoComponents/Todo.css"
+
 
 
 class App extends React.Component {
@@ -20,7 +20,8 @@ class App extends React.Component {
         task: '',
         id: '',
         completed: false,
-        completedOn: ''
+        completedOn: '',
+        isEdit: false
       },
       isShowing: false,
       darkMode: false
@@ -34,9 +35,21 @@ class App extends React.Component {
     darkMode && this.toggleDarkMode()
     this.setState({ completedList, todoList, isShowing, darkMode });
   }
-  // handleEdit = e=> {
-
-  // }
+  toggleEdit = event=> {
+    let id = event.target.getAttribute('name')
+    if(id==='form') id=event.target[0].getAttribute('name')
+    this.setState(prev => ({
+      todoList: prev.todoList.map(
+        el =>`${el.id}`===`${id}` 
+        ? {
+          ...el, 
+          isEdit: !el.isEdit,
+        } 
+        : el
+      )
+    }))
+    
+  }
 
   toggleDarkMode =()=>{
     console.log(this.state.darkMode)
@@ -73,15 +86,30 @@ class App extends React.Component {
   }
   handleChange = event => {
     const {name, value} = event.target
-    name==='task' 
-      ? this.setState({
+    if(name==='task'){
+      this.setState({
         listItem: {
           [name]: value
         }
       })
-      : this.setState({
-          [name]: value
+    }
+    else if(name==='search'){
+      this.setState({
+        [name]: value
       })
+    } 
+    else {
+      this.setState(prev => ({
+        todoList: prev.todoList.map(
+          el =>`${el.id}`===`${name}` 
+          ? {
+            ...el, 
+            task: value,
+          } 
+          : el
+        )
+      }))
+    }
   }
   handleCheck = event => {
     const id = event.target.getAttribute('name')
@@ -104,7 +132,9 @@ class App extends React.Component {
       listItem: {
         task: '',
         id: '',
-        completed: false
+        completed: false,
+        isEdit: false,
+        completedOn: ''
       },
     })
   }
@@ -123,8 +153,6 @@ class App extends React.Component {
       localStorage.setItem('todoList', JSON.stringify(this.state.todoList));
       localStorage.setItem('completedList', JSON.stringify(this.state.completedList));
     })
-    
-
   }
 
   handleDelete = event => {
@@ -142,7 +170,6 @@ class App extends React.Component {
       this.setState({
         completedList: newList
       }, ()=> localStorage.setItem('completedList', JSON.stringify(this.state.completedList)))
-      
     }
   }
 
@@ -167,7 +194,8 @@ class App extends React.Component {
           clearCompleted = {this.clearCompleted}
           search={this.state.search}
           handleDelete={this.handleDelete}
-          handleEdit={this.handleEdit}
+          toggleEdit={this.toggleEdit}
+          handleChange={this.handleChange}
         />
         <TodoForm 
           item={this.state.listItem} 
