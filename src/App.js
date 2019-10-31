@@ -24,14 +24,14 @@ class App extends React.Component {
         isEdit: false
       },
       isShowing: false,
-      darkMode: false
+      darkMode: true
     }
   }
   componentDidMount(){
     const completedList = !!localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
     const todoList = !!localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
     const isShowing = localStorage.getItem('isShowing') ? JSON.parse(localStorage.getItem('isShowing')) : false
-    const darkMode = localStorage.getItem('darkMode') ? JSON.parse(localStorage.getItem('darkMode')) : false
+    const darkMode = localStorage.getItem('darkMode') ? JSON.parse(localStorage.getItem('darkMode')) : true
     darkMode && this.toggleDarkMode()
     this.setState({ completedList, todoList, isShowing, darkMode });
   }
@@ -52,7 +52,6 @@ class App extends React.Component {
   }
 
   toggleDarkMode =()=>{
-    console.log(this.state.darkMode)
     const body = document.querySelector('body')
     const app = document.querySelector('.app-container')
     const items = document.querySelector('.items-container')
