@@ -6,9 +6,6 @@ import CompletedList from "./components/TodoComponents/CompletedList"
 import Search from "./components/TodoComponents/Search"
 import moment from "moment"
 
-
-
-
 class App extends React.Component {
   state = {
       search: '',
@@ -214,7 +211,7 @@ class App extends React.Component {
           item={this.state.listItem} 
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
-          changeDueDate={this.changeDueDate}
+          changeDueDate={this.change}
         />
         {this.state.completedList.length>0 && 
         <CompletedList
