@@ -1,4 +1,6 @@
 import React from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCalendar} from '@fortawesome/free-solid-svg-icons'
 
 const EditForm = (props)=> {
     return (
@@ -13,7 +15,11 @@ const EditForm = (props)=> {
                 value={props.item.task}
                 onChange={props.handleChange}
             />
+            <div className="edit-cal-container">
+                <FontAwesomeIcon className="edit-calendar-icon" icon={faCalendar}/>
+            </div>
             <button className="edit-save">Save</button>
+            
          </form>
     )
 }

@@ -1,4 +1,7 @@
 import React from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCalendar} from '@fortawesome/free-solid-svg-icons'
+
 
 const TodoForm = (props) => {
     return (
@@ -12,6 +15,9 @@ const TodoForm = (props) => {
                     onChange={props.handleChange}
                     placeholder="Enter new task here"
                 />
+                <div className="cal-icon-container" onClick={props.changeDueDate}>
+                    <FontAwesomeIcon className="form-calendar-icon" icon={faCalendar}/>
+                </div>
                 <div className="submit-button" onClick={props.handleSubmit}>Submit</div>
             </form>
         </div>

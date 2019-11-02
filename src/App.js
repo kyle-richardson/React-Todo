@@ -10,9 +10,7 @@ import moment from "moment"
 
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
+  state = {
       search: '',
       completedList: [],
       todoList: [],
@@ -21,12 +19,12 @@ class App extends React.Component {
         id: '',
         completed: false,
         completedOn: '',
-        isEdit: false
+        isEdit: false,
+        dueDate: ''
       },
       isShowing: false,
       darkMode: true
     }
-  }
   componentDidMount(){
     const completedList = !!localStorage.getItem('completedList') ? JSON.parse(localStorage.getItem('completedList')) : []
     const todoList = !!localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : []
@@ -35,6 +33,7 @@ class App extends React.Component {
     darkMode && this.toggleDarkMode()
     this.setState({ completedList, todoList, isShowing, darkMode });
   }
+
   toggleEdit = event=> {
     let id = event.target.getAttribute('name')
     if(id==='form') id=event.target[0].getAttribute('name')
@@ -83,6 +82,7 @@ class App extends React.Component {
     }    
     this.clearForm()
   }
+
   handleChange = event => {
     const {name, value} = event.target
     if(name==='task'){
@@ -110,6 +110,7 @@ class App extends React.Component {
       }))
     }
   }
+
   handleCheck = event => {
     const id = event.target.getAttribute('name')
     this.setState(prev => ({
@@ -178,6 +179,19 @@ class App extends React.Component {
     }), ()=> localStorage.setItem('isShowing', JSON.stringify(this.state.isShowing)))
   }
 
+  changeDueDate = (date, id)=> {
+    this.setState(prev => ({
+      todoList: prev.todoList.map(
+        el =>`${el.id}`===`${id}` 
+        ? {
+          ...el, 
+          dueDate: date
+        } 
+        : el
+      )
+    }), ()=> localStorage.setItem('todoList', JSON.stringify(this.state.todoList)))
+  }
+
   render() {
     return (
       <div className="app-container">
@@ -200,6 +214,7 @@ class App extends React.Component {
           item={this.state.listItem} 
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
+          changeDueDate={this.changeDueDate}
         />
         {this.state.completedList.length>0 && 
         <CompletedList

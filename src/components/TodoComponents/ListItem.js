@@ -15,9 +15,16 @@ const ListItem = (props) => {
                     <span className="checkmark">
                         {item.completed ? <FontAwesomeIcon icon={faCheck}/> : ""}
                     </span>
-                    <span>
-                        {item.task}
-                    </span>
+                    <div>
+                        <p>
+                            {item.task}
+                        </p>
+                        {!!item.dueDate && 
+                        <p className="duedate-text">
+                            {item.dueDate}
+                        </p>}
+                    </div>
+                    
                 </div>
                 
                 <span className="date-completed">
