@@ -1,0 +1,369 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    background: rgb(31, 39, 39);
+    font-size: 1.5rem;
+    margin: 40px auto;
+    width: 100%;
+    font-family: 'B612', sans-serif;
+    /* transition: .3s ease-in-out; */
+}
+h1 {
+    font-size: 4.5rem;
+    margin: 5px;
+}
+h2 {
+    font-size: 3rem;
+
+}
+h3 {
+    font-size: 2.5rem;
+    margin: 5px;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+span, svg {
+    pointer-events: none;
+}
+input[type="text"]{
+    font-size: 16px;
+
+}
+::placeholder {
+    color: rgb(194, 193, 193);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(194, 193, 193);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(194, 193, 193);
+}
+.todo-header, .completed-header {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+}
+
+.clear-button, .completed-button {
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.4rem;
+    background: rgb(139, 185, 255);
+    padding: 10px 0;
+}
+.clear-button:hover, .completed-button:hover {
+    background-color: rgb(94, 156, 250);
+    
+}
+
+.app-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 5px 0;
+    background: white;
+}
+.single-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    text-align: left;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 5%;
+    min-width: 40px;
+}
+.edit-form {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.9rem;
+}
+.edit-text {
+    border: 0;
+    background: rgba(0,0,0,.1);
+    margin-left: 40px;
+    padding: 3px;
+    font-family: 'B612', sans-serif;
+    color: black;
+}
+.edit-save {
+
+    opacity: .8;
+    border: 0;
+    margin-left: 10px;
+    background-color: rgb(80, 235, 145);
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 75px;
+}
+.edit-save:hover {
+    opacity: 1;
+    background-color: rgb(32, 221, 111);
+}
+.edit {
+    opacity: .8;
+    text-align: center;
+    background-color: rgb(139, 185, 255);
+    width: 15%;
+    min-width: 40px;
+    border-bottom: 1px solid gray;
+    padding: 14px 0 10px 0;
+    vertical-align: middle;
+}
+.edit:hover {
+    opacity: 1;
+    background-color: rgb(94, 156, 250);
+}
+.left-side {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.9rem;
+}
+.far-left {
+    display: flex;
+    pointer-events: none;
+}
+.duedate-text {
+    color: red;
+    font-size: 1rem;
+}
+.date-completed {
+    font-size: 1rem;
+}
+.delete {
+    opacity: .6;
+    width: 15%;
+    min-width: 40px;
+    border-bottom: 1px solid gray;
+    padding: 13px 0 7px 0;
+    text-align: center;
+    background-color: rgb(248, 201, 201);
+    font-weight: bold;
+}
+
+.delete:hover {
+    background-color: rgb(253, 77, 77);
+    opacity: 1;
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    margin: 0 auto;
+}
+.item-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.items-container > :nth-child(even) {
+    background-color: rgb(173, 173, 173);
+}
+
+.items-container > :nth-child(odd) {
+    background-color: rgb(197, 197, 197);
+}
+.items-container > *:hover {
+    background-color: rgb(141, 141, 141);
+}
+
+.form-container {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.text-box {
+    width: 70%;
+    height: 35px;
+    margin-right:0;
+    padding-left: 5px;
+    border: 0;
+    border-radius: 0;
+    background: rgb(238, 238, 238);
+
+}
+
+.completed-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.comp-task {
+    text-align: left;
+    text-decoration: line-through;
+    margin-left: 40px;
+}
+.comp-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.comp-delete {
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+}
+.comp-delete:hover {
+    color: rgb(253, 77, 77);
+}
+.comp-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.search-box {
+    border: 0;
+    padding: 5px;
+    border-radius: 0;
+    width: 150px;
+    margin-left: 4%;
+    max-height: 20px;
+    background: rgb(238, 238, 238);
+
+}
+.toggle {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin-top: 10px;
+}
+.edit-cal-container {
+    padding-left: 10px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+.cal-icon-container {
+    cursor: pointer;
+    padding-top: 10px;
+    position: absolute;
+    right: 34%;
+}
+.form-calendar-icon {
+    
+}
+.submit-button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background-color: white;
+    margin: 0;
+    height: 27px;
+    width: 21%;
+    text-align: center;
+    background: rgb(80, 235, 145);
+    padding-top: 10px;
+    min-width: 60px;
+}
+
+.submit-button:hover {
+    background: rgb(32, 221, 111);
+}
+
+.checked {
+    /* text-decoration: line-through; */
+    font-style: italic;
+    color: white;
+    background-color: rgb(96, 110, 124);
+    opacity: .6;
+}
+.hide {
+    display: none;
+}
+
+.dark-mode {
+    background: rgb(32, 32, 32);
+    color: white;
+    transition: .3s ease-in-out;
+}
+.dark-mode-list {
+    color: black;
+}
+.dark-mode-text {
+    background-color: rgb(141, 141, 141);
+    color: white;
+}
+@media (max-width: 600px) {
+    .app-container {
+        padding: 0;
+    }
+    .todo-header, .completed-header {
+        flex-direction: column;
+        padding: 0;
+    }
+    .search-box {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 0 10px 10px;
+        margin: 0;
+        max-height: 40px;
+
+    }
+    .text-box {
+        width: 60%;
+    }
+    .submit-button {
+        width: 40%;
+        height: 33px;
+    }
+    .clear-button, .completed-button {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .app-container {
+        padding: 0;
+        width: 100%;
+    }
+    .form-container {
+        margin: 0;
+    }
+    .completed-container {
+        margin-top: 40px;
+    }
+    .items-container {
+        margin: 10px auto;
+        width: 100%;
+    }
+    .cal-icon-container {
+        right: 43%;
+    }
+    .toggle {
+        padding-left: 5px;
+    }
+    .delete, .edit {
+        width: 20%;
+    }
+    body {
+        margin: 0 auto;
+        background-color: white;
+    }
+}
